@@ -28,11 +28,11 @@ class ModelTests(TestCase):
         should raise value error since no email is passed for user creation"""
 
         with self.assertRaises(ValueError):
-            get_user_model.objects.create_user(None, 'testpwd')
+            get_user_model().objects.create_user(None, 'testpwd')
 
     def test_create_new_superuser(self):
         """Test whether the user created is superuser"""
-        user = get_user_model.objects.create_superuser(
+        user = get_user_model().objects.create_superuser(
             'test@gmail.com',
             'test123'
         )
