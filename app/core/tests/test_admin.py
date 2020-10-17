@@ -26,7 +26,7 @@ class AdminSiteTests(TestCase):
 
         self.assertContains(res, self.user.name)
         self.assertContains(res, self.user.email)
-        #assertion s brilliant enough to chk username from res(which is obj)
+        #assertion s brilliant enough to chk the username from res(which is obj)
 
     def test_user_change_page(self):
         """Test that user edit page works"""
@@ -34,11 +34,11 @@ class AdminSiteTests(TestCase):
         #/admin/core/user/id->above url
         res = self.client.get(url)
 
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code,200)
 
     def test_create_user_page(self):
         """Test that the 'create user' page works"""
         url = reverse('admin:core_user_add')
         res = self.client.get(url)
 
-        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.status_code,200)
