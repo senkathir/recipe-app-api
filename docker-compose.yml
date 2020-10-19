@@ -13,14 +13,16 @@ services:
             python manage.py migrate &&
             python manage.py runserver 0.0.0.0:8000"
    environment:
-     -DB_HOST=db
-     -DB_NAME=app
-     -DB_USER=postgres
-     -DB_PASS=tada3012
+     - DB_HOST=db
+     - DB_NAME=app
+     - DB_USER=postgres
+     - DB_PASS=tada3012
+   depends_on:
+     - db
 
  db:
    image: postgres:10-alpine
    environment:
-     -POSTGRES_DB=app
-     -POSTGRES_USER=postgres
-     -POSTGRES_PASSWORD=tada3012
+     - POSTGRES_DB=app
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=tada3012
